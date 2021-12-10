@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}Hotel Admin Home{% endblock title %}Home 
+{% load static %} 
+{% block content %}
+
+<!-- <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="inputState">Rooms Type</label>
+            <select id="inputState" class="form-control" required>
+              <option selected disabled>Please Select....</option>
+              <option>Single Room</option>
+              <option>Double Room</option>
+              <option>Single AC Room</option>
+              <option>Double Ac Room</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="roomprice">Prices</label>
+        <input type="text" class="form-control" id="roomprice" placeholder="Room Prices" required>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" class="form-control" id="status" placeholder="Status" required>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary">Add Rooms</button>
+    </div> -->
+
+    <div class="row">
+        <div class="col-md-4 m-2">
+            <h2>Add Rooms : </h2>
+            <hr>
+            <form action="/hotelapp/addnewrooms/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="inputState">Rooms Type</label>
+                    <select id="inputState" class="form-control" required>
+                      <option selected disabled>Please Select....</option>
+                      <option>Single Room</option>
+                      <option>Double Room</option>
+                      <option>Single AC Room</option>
+                      <option>Double Ac Room</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roomprice">Prices</label>
+                    <input type="text" class="form-control" id="roomprice" placeholder="Room Prices" required>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <input type="text" class="form-control" id="status" placeholder="Status" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
+              </form>
+              
+        </div>
+
+
+
+    <div class="col-md-6"></div>
+</div>
+
+{% endblock %}

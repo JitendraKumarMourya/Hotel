@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">ROOMS:</h1>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>S.NO</th>
+        <th>Name</th>
+        <th>Staff ID</th>
+        <th>Department</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>01</td>
+        <td>allu</td>
+        <td>101</td>
+        <td>room SERVICES</td>
+        <td><button>Delete</button></td>
+    </tr>
+    <tr>
+        <td>02</td>
+        <td>ravi kumar</td>
+        <td>102</td>
+        <td>cleaner</td>
+    </tr>
+</tbody>
+</table>
+
+{% endblock %}

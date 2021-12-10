@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hotel management</title>
+
+    <link rel="stylesheet" href="{% static '/css/welcome.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arvo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <style>
+        header{
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1)), url("{% static 'images/hotel1.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+
+
+}
+    </style>
+
+</head>
+<body>
+    <header>
+
+
+    <nav>
+        <div class="logo"><h1 class="animated infinite heartBeat">TAJ HOTEL</h1></div>
+        <div class="menu">
+            <a href="">home</a>
+            <a href="">gallery</a>
+            <a href="">about us</a>
+            <a href="https://www.google.com/" target="_blank">contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <h3>Welcome To Our Hohel</h3>
+            <h1>Welcome To Our Hotel In <span class=" change-content"></span></h1>
+            <p>" Please Book and stay safely "</p><br>
+            <!-- <button class="btn">Book Now</button> -->
+            <a href="/home.html" class="btn">Book Now</a>
+        </section>
+    </main>
+</header>
+</body>
+</html>

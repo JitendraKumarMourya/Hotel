@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Hotel Admin Home{% endblock title %}Home 
+{% load static %} 
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4 m-2">
+        <h2>Add New Hotel : </h2>
+        <hr>
+        <form action="/hotelapp/addnewhotel/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Hotel Image</label>
+              <input type="file" class="form-control" id="hotelimage" name="hotelimage" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Hotel Name</label>
+              <input type="text" class="form-control" id="hotelname" name="hotelname" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Hotel location</label>
+                <input type="text" class="form-control" id="hotellocation" name="hotellocation" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Hotel Description</label>
+                <input type="text" class="form-control" id="hoteldescription" name="hoteldescription" required>
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            
+          </form>
+          <p>{{ allhotel.hotelimage }}</p>
+          
+    </div>
+
+    
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Hotel ID</th>
+                <th scope="col">Hotel Image</th>
+                <th scope="col">Hotel Name</th>
+                <th scope="col">Hotel Locations</th>
+                <th scope="col">Hotel Descrition</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for hoteldetails in hoteldata %}
+              
+                <tr>
+                  
+                <td>
+                  {{ hoteldetails.id }}
+                  
+               </td>
+               
+               <td>
+                <img src="/userapp/media/{{hoteldetails.hotelimage}} " height="75px" >
+              </td>
+
+                <td>
+                  {{ hoteldetails.hotelname }}
+                 
+                </td>
+
+                <td>
+                  {{ hoteldetails.hotellocation }}
+                
+                </td>
+
+                <td>
+                  {{ hoteldetails.hoteldescription }}
+            
+                </td>
+              
+              </tr>
+
+              <tr>
+                
+              </tr>
+
+              {% endfor %} 
+            </tbody>
+            
+          </table>
+    </div>
+</div>
+
+
+{% endblock %}

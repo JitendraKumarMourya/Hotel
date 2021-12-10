@@ -1,0 +1,199 @@
+{% extends 'master_home.html' %} {% block title %}Home{% endblock title %}Home {% load static %} {% block content %}
+
+<div class="container-fluid" style="margin-top: 100px;">
+
+    <div class="border rounded-lg shadow-lg p-4">
+        <h3 class="text-danger">Where to?</h3>
+
+        <form action="/userapp/searchrooms/" method="POST">
+            {% csrf_token %}
+            <div class="form-row ">
+                <div class="col-md-2">
+                    <label for="inputEmail4" class="font-weight-bolder" id="cl">City/Area</label>
+                    <div class="input-group w-100">
+                        <span class="input-group-text" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                                </path>
+                            </svg>
+                        </span>
+                        <input type="text" class="form-control" placeholder="City/Area" aria-label="Input group example"
+                            aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="Check-Out" class="font-weight-bolder" id="cl">Check-In</label>
+                    <input type="date" class="form-control" id="ckin" name="checkin">
+                </div>
+
+                <div class="col-md-2" class="text-danger">
+                    <label for="Check-Out" class="font-weight-bolder" id="cl"></i>Check-Out</label>
+                    <input type="date" class="form-control" id="ckout" name="checkout">
+                </div>
+
+                <div class="col-md-2">
+                    <label for="rooms" class="font-weight-bolder" id="cl"></i>Rooms</label>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Rooms
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">01</a>
+                            <a class="dropdown-item" href="#">02</a>
+                            <a class="dropdown-item" href="#">03</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="rooms" class="font-weight-bolder" id="cl"></i>Adults</label>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Adults
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">01</a>
+                            <a class="dropdown-item" href="#">02</a>
+                            <a class="dropdown-item" href="#">03</a>
+                            <a class="dropdown-item" href="#">05</a>
+                            <a class="dropdown-item" href="#">06</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2" style="padding-top: 25px;">
+                    <button type="submit" class="btn rounded-pill"
+                        style="background-color: #156bc1; width: 50%; color: #ffffff;">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Filters here -->
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <nav class="nav flex-column active">Filter by:
+
+                <div class="dropdown-divider"></div>
+                <a class="nav-link active" href="#">Your budget (per night)</a>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" onclick="Fnprice()">
+                    <label class="form-check-label" for="defaultCheck1">
+                        ₹&nbsp;0 - ₹&nbsp;2,499
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        ₹&nbsp;2,499 - ₹&nbsp;4,499
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        ₹&nbsp;4,499 - ₹&nbsp;6,000
+                    </label>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <a class="nav-link" href="#">Room Type</a>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Single Rooms
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Double Rooms
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Single Rooms With AC
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Double Rooms with AC
+                    </label>
+                </div>
+                <div class="dropdown-divider"></div>
+
+                <!-- <a class="nav-link" href="#">Other Facilitys:</a>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+              Free WiFi
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+              Free Brekfast
+              </label>
+            </div>
+             -->
+            </nav>
+        </div>
+
+        <!-- <script>
+            function Fnprice(min, max) {
+                $.ajax({
+                    url: '/filterprice/',
+                    type: 'POST',
+                    data: {
+                        min: min,
+                        max: max
+                    },
+                    success: function(response) {
+                        alert(response.msg)
+
+                    }
+
+                })
+            }
+        </script> -->
+
+        <!-- rooms Cards -->
+        <div class="col-md-9">
+        {% for i in addhotels %}
+
+        <div class="card" style="max-width: 100%;">
+           
+            <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="/userapp/media/{{i.hotelimage}}" alt="room image" style="height: 180px;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{i.hotelname}}</h5>
+                            <p class="card-text">{{i.hotellocation}}</p>
+                            <p class="card-text">{{i.hoteldescription}}></p>
+                            <button class="btn btn-success">check avability</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+
+        {% endfor %}
+    </div>
+
+
+
+</div>
+</div>
+{% endblock %}

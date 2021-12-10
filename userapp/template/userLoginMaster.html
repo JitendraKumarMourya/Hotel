@@ -1,0 +1,184 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- Bootstrap Icon CDN 4.6 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+    <!-- w3school Icon CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>User Login Master Page</title>
+
+    <style>
+      #cl{
+        color: #156bc1;;
+      }
+    </style>
+
+  </head>
+  
+  <body >
+    <nav class="navbar fixed-top navbar-expand-lg mb-5 navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Hotel Management</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+      
+          <!-- <input class="form-control" type="search" placeholder="Search" aria-label="Search"> -->
+    
+
+          
+            <li class="nav-item active">
+              <i class="bi bi-person text-light" style="font-size: 25px;"></i>
+            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            User</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+              <a class="dropdown-item" href="/userapp/userUpdate/"><span style="font-size: 25px;" ><i class="bi bi-pencil-square text-dark"></i></span>&nbsp;&nbsp;Update Profile</a>
+              <a class="dropdown-item" href="/userapp/userChangePass/"><span style="font-size: 25px;"><i style="font-size:24px" class="fa">&#xf084;</i></span>&nbsp;&nbsp;Reset Password</a>
+              <a class="dropdown-item" href="/userapp/userDelete/"><span style="font-size: 25px;"><i class="bi bi-trash text-dark"></i></span>&nbsp;&nbsp;Delete User</a>
+              <a class="dropdown-item" href="/userapp/userLogout/"><span style="font-size: 25px;"><i class="bi bi-power"></i></span>&nbsp;&nbsp;Logout</a>
+            </div>
+            
+          </li>
+        </ul>
+      </div>
+      
+    </nav>
+    <h3>
+    {% for msg in messages %}
+      <script>alert('{{msg}}')</script>
+    {% endfor %}
+    </h3>
+  
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+
+    <div class="row">
+     
+      <div class="col-md-6">
+        {% block content %}
+
+      
+        {% endblock %}
+      </div>
+    </div>
+
+    
+
+    <!-- Booking Part -->
+  <div class="container border rounded-lg border-warning shadow-lg p-4 mt-5">
+    <h3 class="text-danger">Where to?</h3>
+    <div style="margin:0px;">
+  <form action="#" method="POST">
+    <div class="form-row ">
+      <div class="col-md-4">
+        <label for="inputEmail4" class="font-weight-bolder" id="cl">City/Area</label>
+        <div class="input-group w-100">
+          <span class="input-group-text" id="basic-addon1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+          </svg>
+          </span>
+          <input type="text" class="form-control" placeholder="City/Area" aria-label="Input group example" aria-describedby="basic-addon1">
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <label for="Check-Out" class="font-weight-bolder" id="cl">Check-In</label>
+        <input type="date" class="form-control" id="ckin" name="checkin">
+      </div>
+
+      <div class="col-md-2" class="text-danger">
+        <label for="Check-Out" class="font-weight-bolder" id="cl"></i>Check-Out</label>
+        <input type="date" class="form-control" id="ckout" name="checkout">
+        
+      </div>
+
+      <div class="col-md-2 col">
+        <label for="Check-Out" class="font-weight-bolder" id="cl">Guest</label><br>
+        <button type="button" class="btn btn-outline w-100 border" data-toggle="modal" data-target="#guest1"><span><i class="bi bi-people-fill text-danger" style="float: left;"></i></span>Guests</button>
+      </div>
+      <div class="col-md-2 my-auto" style="padding-top: 25px;">
+        <button type="submit" class="btn rounded-pill" style="background-color: #156bc1; width: 50%; color: #ffffff;">Submit</button>
+      </div>
+      </div>
+      
+    </div>
+  </form>
+</div>
+
+<!-- Booking Part END -->
+
+<!-- Modal -->
+<div class="modal fade" id="guest1" tabindex="-1" aria-labelledby="guest1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="guest1">Room 1</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row mb-2">
+          <div class="col-md-6">Adults:</div>
+          <div class="col-md-3"><select id="inputState" class="form-control">
+            <option selected>01</option>
+            <option>02</option>
+            <option>03</option>
+            <option>04</option>
+            <option>05</option>
+            <option>06</option>
+          </select></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">Children:</div>
+          <div class="col-md-3"><select id="inputState" class="form-control">
+            <option selected>01</option>
+            <option>02</option>
+            <option>03</option>
+            <option>04</option>
+            <option>05</option>
+            <option>06</option>
+          </select></div>
+        </div>
+        <hr>
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <a href="#" style="text-decoration: none;">Add A Room</a>
+          </div>
+          <div class="col-md-6"></div>
+       </div>
+       <hr>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
+        <button type="submit" class="btn rounded-pill" style="background-color: #156bc1; color: #ffffff; width: 20%;">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
+
+    
+
